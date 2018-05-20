@@ -144,6 +144,95 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-spring-boot-整合-mybatis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/05/20/spring-boot-整合-mybatis/">spring boot 整合 mybatis</a>
+    </h1>
+  
+
+        
+        <a href="/2018/05/20/spring-boot-整合-mybatis/" class="archive-article-date">
+  	<time datetime="2018-05-20T09:08:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-20</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="一、项目结构"><a href="#一、项目结构" class="headerlink" title="一、项目结构"></a>一、项目结构</h1><p><img src="../img/spring-mybatis/springboot-project.png" alt=""></p>
+<p><meta http-equiv="refresh" content="0.1"></p>
+<h1 id="二、添加maven依赖"><a href="#二、添加maven依赖" class="headerlink" title="二、添加maven依赖"></a>二、添加maven依赖</h1><hr>
+<ol>
+<li><p>spring依赖<br><code>&lt;dependency&gt;</code><br>&emsp;<code>&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</code><br>&emsp;<code>&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</code><br><code>&lt;/dependency&gt;</code><br><code>&lt;dependency&gt;</code><br>&emsp;<code>&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</code><br>&emsp;<code>&lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;</code><br><code>&lt;/dependency&gt;</code>  </p>
+</li>
+<li><p>mybatis依赖<br><code>&lt;dependency&gt;</code><br>&emsp;<code>&lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;</code><br>&emsp;<code>&lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;</code><br>&emsp;<code>&lt;version&gt;1.1.1&lt;/version&gt;</code><br><code>&lt;/dependency&gt;</code><br><code>&lt;dependency&gt;</code><br><code>&lt;groupId&gt;mysql&lt;/groupId&gt;</code><br>&emsp;<code>&lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</code><br>&emsp;<code>&lt;version&gt;6.0.4&lt;/version&gt;</code><br><code>&lt;/dependency&gt;</code>  </p>
+</li>
+</ol>
+<h1 id="三、项目进行配置"><a href="#三、项目进行配置" class="headerlink" title="三、项目进行配置"></a>三、项目进行配置</h1><hr>
+<p>1.application.yml添加配置<br><code>server:</code><br>&emsp;<code>port: 8088</code>  </p>
+<p><code>spring:</code><br>&emsp;<code>datasource:</code><br>&emsp;<code>name: test</code><br>&emsp;<code>url: jdbc:mysql://localhost:3306/数据库名?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=GMT%2b8</code><br>&emsp;<code>username: 用户名</code><br>&emsp;<code>password: 密码</code>  </p>
+<p><code>mybatis:</code><br>&emsp;<code>typeAliasesPackage: com.springboot.lg.springboot.entity</code><br>&emsp;<code>mapperLocations: classpath:mapper/*.xml</code>  </p>
+<p>2.Application添加注解<br><code>@MapperScan(&quot;com.springboot.lg.springboot.dao-Mapper包位置&quot;)</code>  </p>
+<p>3.Dao层编写<br><img src="../img/spring-mybatis/dao.png" alt="">  </p>
+<p>4.mapper编写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">这里做部分展示</span><br><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot; &gt;</span><br><span class="line">&lt;mapper namespace=&quot;com.springboot.lg.springboot.dao.StaffMapper&quot; &gt;</span><br><span class="line">  &lt;resultMap id=&quot;BaseResultMap&quot; type=&quot;com.springboot.lg.springboot.entity.Staff&quot; &gt;</span><br><span class="line">    &lt;id column=&quot;staff_id&quot; property=&quot;staffId&quot; jdbcType=&quot;INTEGER&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;staff_user_id&quot; property=&quot;staffUserId&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;staff_open_id&quot; property=&quot;staffOpenId&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;staff_name&quot; property=&quot;staffName&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;staff_phone&quot; property=&quot;staffPhone&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;staff_role&quot; property=&quot;staffRole&quot; jdbcType=&quot;INTEGER&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;staff_tag&quot; property=&quot;staffTag&quot; jdbcType=&quot;INTEGER&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;create_date&quot; property=&quot;createDate&quot; jdbcType=&quot;TIMESTAMP&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;create_by&quot; property=&quot;createBy&quot; jdbcType=&quot;INTEGER&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;del_flag&quot; property=&quot;delFlag&quot; jdbcType=&quot;INTEGER&quot; /&gt;</span><br><span class="line">  &lt;/resultMap&gt;</span><br><span class="line">  &lt;sql id=&quot;Base_Column_List&quot; &gt;</span><br><span class="line">    staff_id, staff_user_id, staff_open_id, staff_name,  staff_phone, staff_role, create_date, create_by,</span><br><span class="line">    del_flag</span><br><span class="line">  &lt;/sql&gt;</span><br><span class="line">  &lt;select id=&quot;selectByPrimaryKey&quot; resultMap=&quot;BaseResultMap&quot; parameterType=&quot;java.lang.Integer&quot; &gt;</span><br><span class="line">    select </span><br><span class="line">    &lt;include refid=&quot;Base_Column_List&quot; /&gt;</span><br><span class="line">    from staff</span><br><span class="line">    where staff_id = #&#123;staffId,jdbcType=INTEGER&#125;</span><br><span class="line">  &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">  &lt;select id=&quot;getByUserId&quot; resultMap=&quot;BaseResultMap&quot; parameterType=&quot;String&quot; &gt;</span><br><span class="line">    select</span><br><span class="line">    &lt;include refid=&quot;Base_Column_List&quot; /&gt;</span><br><span class="line">    from staff</span><br><span class="line">    where staff_user_id = #&#123;id&#125; AND del_flag = 0</span><br><span class="line">  &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">  &lt;select id=&quot;getByOpenId&quot; resultMap=&quot;BaseResultMap&quot; parameterType=&quot;String&quot; &gt;</span><br><span class="line">    select</span><br><span class="line">    &lt;include refid=&quot;Base_Column_List&quot; /&gt;</span><br><span class="line">    from staff</span><br><span class="line">    where staff_open_id = #&#123;id&#125; AND del_flag = 0</span><br><span class="line">  &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">  &lt;select id=&quot;findList&quot; resultMap=&quot;BaseResultMap&quot;&gt;</span><br><span class="line">    select</span><br><span class="line">    &lt;include refid=&quot;Base_Column_List&quot; /&gt;</span><br><span class="line">    from staff</span><br><span class="line">    where  del_flag = 0 limit #&#123;startnum&#125;,#&#123;size&#125;</span><br><span class="line">  &lt;/select&gt;</span><br><span class="line">  &lt;select id=&quot;countfindList&quot; resultType=&quot;java.lang.Integer&quot;&gt;</span><br><span class="line">    select COUNT(*)</span><br><span class="line">    from staff</span><br><span class="line">    where  del_flag = 0</span><br><span class="line">  &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Springboot</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/05/20/spring-boot-整合-mybatis/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -298,6 +387,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Springboot</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>

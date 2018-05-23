@@ -5,19 +5,20 @@
   
 
   
-  <title>罗诗傅的博客</title>
+  <title>springboot shiro 基本配置 | 罗诗傅的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据读取中。。。">
+  <meta name="description" content="本文主要是自己配置springboot shiro的一些基础知识点的整理，方便日后翻阅，可以用于在前后端分离项目中后端的权限配置 一、引入Shiro框架 使用maven加入jar包  12345&amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;org.apache.shiro&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;shiro-spring&amp;lt;/a">
 <meta name="keywords" content="罗诗傅">
-<meta property="og:type" content="website">
-<meta property="og:title" content="罗诗傅的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="springboot shiro 基本配置">
+<meta property="og:url" content="http://yoursite.com/2018/05/23/springboot-shiro-基本配置/index.html">
 <meta property="og:site_name" content="罗诗傅的博客">
-<meta property="og:description" content="数据读取中。。。">
+<meta property="og:description" content="本文主要是自己配置springboot shiro的一些基础知识点的整理，方便日后翻阅，可以用于在前后端分离项目中后端的权限配置 一、引入Shiro框架 使用maven加入jar包  12345&amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;org.apache.shiro&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;shiro-spring&amp;lt;/a">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-05-23T15:42:51.006Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="罗诗傅的博客">
-<meta name="twitter:description" content="数据读取中。。。">
+<meta name="twitter:title" content="springboot shiro 基本配置">
+<meta name="twitter:description" content="本文主要是自己配置springboot shiro的一些基础知识点的整理，方便日后翻阅，可以用于在前后端分离项目中后端的权限配置 一、引入Shiro框架 使用maven加入jar包  12345&amp;lt;dependency&amp;gt;	&amp;lt;groupId&amp;gt;org.apache.shiro&amp;lt;/groupId&amp;gt;	&amp;lt;artifactId&amp;gt;shiro-spring&amp;lt;/a">
   
     <link rel="alternate" href="/atom.xml" title="罗诗傅的博客" type="application/atom+xml">
   
@@ -64,9 +65,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-springboot-shiro-基本配置" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-springboot-shiro-基本配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/05/23/springboot-shiro-基本配置/" class="article-date">
   <time datetime="2018-05-23T14:06:59.000Z" itemprop="datePublished">2018-05-23</time>
@@ -79,8 +78,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/23/springboot-shiro-基本配置/">springboot shiro 基本配置</a>
+    <h1 class="article-title" itemprop="name">
+      springboot shiro 基本配置
     </h1>
   
 
@@ -128,109 +127,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-spring-boot-整合-mybatis" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/20/spring-boot-整合-mybatis/" class="article-date">
-  <time datetime="2018-05-20T09:08:41.000Z" itemprop="datePublished">2018-05-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/20/spring-boot-整合-mybatis/">spring boot 整合 mybatis</a>
-    </h1>
+    <a href="/2018/05/20/spring-boot-整合-mybatis/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">spring boot 整合 mybatis</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、项目结构"><a href="#一、项目结构" class="headerlink" title="一、项目结构"></a>一、项目结构</h1><p><img src="/2018/05/20/spring-boot-整合-mybatis/springboot-project.png" alt=""></p>
-<h1 id="二、添加maven依赖"><a href="#二、添加maven依赖" class="headerlink" title="二、添加maven依赖"></a>二、添加maven依赖</h1><hr>
-<ol>
-<li><p>spring依赖  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>mybatis依赖  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.1.1&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;6.0.4&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<h1 id="三、项目进行配置"><a href="#三、项目进行配置" class="headerlink" title="三、项目进行配置"></a>三、项目进行配置</h1><hr>
-<p>1.application.yml添加配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">server:</span><br><span class="line">  port: 8088</span><br><span class="line"></span><br><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    name: test</span><br><span class="line">    url: jdbc:mysql://localhost:3306/repository?useUnicode=true&amp;characterEncoding=utf-8&amp;serverTimezone=GMT%2b8</span><br><span class="line">    username: root</span><br><span class="line">    password: root</span><br><span class="line"></span><br><span class="line"># mybatis</span><br><span class="line"># 对应实体类的包名</span><br><span class="line">mybatis:</span><br><span class="line">  typeAliasesPackage: com.springboot.lg.springboot.entity</span><br><span class="line"># mapper.xml文件所在位置</span><br><span class="line">  mapperLocations: classpath:mapper/*.xml</span><br></pre></td></tr></table></figure></p>
-<p>2.Application添加注解<br><code>@MapperScan(&quot;com.springboot.lg.springboot.dao-Mapper包位置&quot;)</code>  </p>
-<p>3.Dao层编写<br><img src="/2018/05/20/spring-boot-整合-mybatis/dao.png" alt="">  </p>
-<p>4.mapper编写<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="line">&lt;!DOCTYPE mapper PUBLIC &quot;-//mybatis.org//DTD Mapper 3.0//EN&quot; &quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot; &gt;</span><br><span class="line">&lt;mapper namespace=&quot;com.springboot.lg.springboot.dao.StaffMapper&quot; &gt;</span><br><span class="line">  &lt;resultMap id=&quot;BaseResultMap&quot; type=&quot;com.springboot.lg.springboot.entity.Staff&quot; &gt;</span><br><span class="line">    &lt;id column=&quot;staff_id&quot; property=&quot;staffId&quot; jdbcType=&quot;INTEGER&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;staff_user_id&quot; property=&quot;staffUserId&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;staff_open_id&quot; property=&quot;staffOpenId&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;staff_name&quot; property=&quot;staffName&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;staff_phone&quot; property=&quot;staffPhone&quot; jdbcType=&quot;VARCHAR&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;staff_role&quot; property=&quot;staffRole&quot; jdbcType=&quot;INTEGER&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;staff_tag&quot; property=&quot;staffTag&quot; jdbcType=&quot;INTEGER&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;create_date&quot; property=&quot;createDate&quot; jdbcType=&quot;TIMESTAMP&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;create_by&quot; property=&quot;createBy&quot; jdbcType=&quot;INTEGER&quot; /&gt;</span><br><span class="line">    &lt;result column=&quot;del_flag&quot; property=&quot;delFlag&quot; jdbcType=&quot;INTEGER&quot; /&gt;</span><br><span class="line">  &lt;/resultMap&gt;</span><br><span class="line">  &lt;sql id=&quot;Base_Column_List&quot; &gt;</span><br><span class="line">    staff_id, staff_user_id, staff_open_id, staff_name,  staff_phone, staff_role, create_date, create_by,</span><br><span class="line">    del_flag</span><br><span class="line">  &lt;/sql&gt;</span><br><span class="line">  &lt;select id=&quot;selectByPrimaryKey&quot; resultMap=&quot;BaseResultMap&quot; parameterType=&quot;java.lang.Integer&quot; &gt;</span><br><span class="line">    select </span><br><span class="line">    &lt;include refid=&quot;Base_Column_List&quot; /&gt;</span><br><span class="line">    from staff</span><br><span class="line">    where staff_id = #&#123;staffId,jdbcType=INTEGER&#125;</span><br><span class="line">  &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">  &lt;select id=&quot;getByUserId&quot; resultMap=&quot;BaseResultMap&quot; parameterType=&quot;String&quot; &gt;</span><br><span class="line">    select</span><br><span class="line">    &lt;include refid=&quot;Base_Column_List&quot; /&gt;</span><br><span class="line">    from staff</span><br><span class="line">    where staff_user_id = #&#123;id&#125; AND del_flag = 0</span><br><span class="line">  &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">  &lt;select id=&quot;getByOpenId&quot; resultMap=&quot;BaseResultMap&quot; parameterType=&quot;String&quot; &gt;</span><br><span class="line">    select</span><br><span class="line">    &lt;include refid=&quot;Base_Column_List&quot; /&gt;</span><br><span class="line">    from staff</span><br><span class="line">    where staff_open_id = #&#123;id&#125; AND del_flag = 0</span><br><span class="line">  &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">  &lt;select id=&quot;findList&quot; resultMap=&quot;BaseResultMap&quot;&gt;</span><br><span class="line">    select</span><br><span class="line">    &lt;include refid=&quot;Base_Column_List&quot; /&gt;</span><br><span class="line">    from staff</span><br><span class="line">    where  del_flag = 0 limit #&#123;startnum&#125;,#&#123;size&#125;</span><br><span class="line">  &lt;/select&gt;</span><br><span class="line">  &lt;select id=&quot;countfindList&quot; resultType=&quot;java.lang.Integer&quot;&gt;</span><br><span class="line">    select COUNT(*)</span><br><span class="line">    from staff</span><br><span class="line">    where  del_flag = 0</span><br><span class="line">  &lt;/select&gt;</span><br><span class="line"></span><br><span class="line">&lt;/mapper&gt;</span><br></pre></td></tr></table></figure></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/20/spring-boot-整合-mybatis/" data-id="cjhja3g9f000090ez13feg9ka" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Springboot/">Springboot</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2018/05/20/hello-world/" class="article-date">
-  <time datetime="2018-05-20T05:27:12.508Z" itemprop="datePublished">2018-05-20</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/05/20/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/20/hello-world/" data-id="cjhja3ga7000490ez4ql65tmp" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         

@@ -5,20 +5,20 @@
   
 
   
-  <title>罗诗傅的博客</title>
+  <title>jdk8 stream 基本使用（持续更新） | 罗诗傅的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="jdk8 stream 基本使用 title: jdk8 stream 基本使用（持续更新）date: 2019-03-16 14:37:59 tags: [java,stream,jdk8] 本文主要是总结一下平时使用的比较多的stream用法   list循环以及filter过滤使用  12345678910111213List&amp;lt;Student&amp;gt; list = new ArrayL">
-<meta name="keywords" content="罗诗傅">
+  <meta name="description" content="本文主要是总结一下平时使用的比较多的stream用法   list循环以及filter过滤使用  12345678910111213List&amp;lt;Student&amp;gt; list = new ArrayList&amp;lt;&amp;gt;();// 获得性别为男的学生数量int num = list.stream()              .filter(c&amp;gt;c.getSex().equals(">
+<meta name="keywords" content="java,stream,jdk8">
 <meta property="og:type" content="article">
-<meta property="og:title" content="罗诗傅的博客">
+<meta property="og:title" content="jdk8 stream 基本使用（持续更新）">
 <meta property="og:url" content="http://yoursite.com/2019/03/16/jdk8 stream 基本使用/index.html">
 <meta property="og:site_name" content="罗诗傅的博客">
-<meta property="og:description" content="jdk8 stream 基本使用 title: jdk8 stream 基本使用（持续更新）date: 2019-03-16 14:37:59 tags: [java,stream,jdk8] 本文主要是总结一下平时使用的比较多的stream用法   list循环以及filter过滤使用  12345678910111213List&amp;lt;Student&amp;gt; list = new ArrayL">
+<meta property="og:description" content="本文主要是总结一下平时使用的比较多的stream用法   list循环以及filter过滤使用  12345678910111213List&amp;lt;Student&amp;gt; list = new ArrayList&amp;lt;&amp;gt;();// 获得性别为男的学生数量int num = list.stream()              .filter(c&amp;gt;c.getSex().equals(">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-16T08:11:13.666Z">
+<meta property="og:updated_time" content="2019-03-16T08:19:38.178Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="罗诗傅的博客">
-<meta name="twitter:description" content="jdk8 stream 基本使用 title: jdk8 stream 基本使用（持续更新）date: 2019-03-16 14:37:59 tags: [java,stream,jdk8] 本文主要是总结一下平时使用的比较多的stream用法   list循环以及filter过滤使用  12345678910111213List&amp;lt;Student&amp;gt; list = new ArrayL">
+<meta name="twitter:title" content="jdk8 stream 基本使用（持续更新）">
+<meta name="twitter:description" content="本文主要是总结一下平时使用的比较多的stream用法   list循环以及filter过滤使用  12345678910111213List&amp;lt;Student&amp;gt; list = new ArrayList&amp;lt;&amp;gt;();// 获得性别为男的学生数量int num = list.stream()              .filter(c&amp;gt;c.getSex().equals(">
   
     <link rel="alternate" href="/atom.xml" title="罗诗傅的博客" type="application/atom+xml">
   
@@ -68,18 +68,26 @@
         <section id="main"><article id="post-jdk8 stream 基本使用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/03/16/jdk8 stream 基本使用/" class="article-date">
-  <time datetime="2019-03-16T08:11:46.121Z" itemprop="datePublished">2019-03-16</time>
+  <time datetime="2019-03-16T06:37:59.000Z" itemprop="datePublished">2019-03-16</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      jdk8 stream 基本使用（持续更新）
+    </h1>
+  
+
+      </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="jdk8-stream-基本使用"><a href="#jdk8-stream-基本使用" class="headerlink" title="jdk8 stream 基本使用"></a>jdk8 stream 基本使用</h1><hr>
-<p>title: jdk8 stream 基本使用（持续更新）<br>date: 2019-03-16 14:37:59</p>
-<h2 id="tags-java-stream-jdk8"><a href="#tags-java-stream-jdk8" class="headerlink" title="tags: [java,stream,jdk8]"></a>tags: [java,stream,jdk8]</h2><hr>
+        <hr>
 <p><em>本文主要是总结一下平时使用的比较多的stream用法</em></p>
 <hr>
 <ul>
@@ -102,9 +110,11 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/16/jdk8 stream 基本使用/" data-id="cjtb7xruj000wlkezrmdxvbib" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/16/jdk8 stream 基本使用/" data-id="cjtb80d9800018seztm70aib2" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jdk8/">jdk8</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/stream/">stream</a></li></ul>
+
     </footer>
   </div>
   
@@ -133,7 +143,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shiro/">shiro</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/token-jwt登陆/">token jwt登陆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/免登陆/">免登陆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/异常/">异常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jdk8/">jdk8</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/security/">security</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/shiro/">shiro</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/stream/">stream</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/token-jwt登陆/">token jwt登陆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/免登陆/">免登陆</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/异常/">异常</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/配置/">配置</a></li></ul>
     </div>
   </div>
 
@@ -143,7 +153,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/security/" style="font-size: 15px;">security</a> <a href="/tags/shiro/" style="font-size: 15px;">shiro</a> <a href="/tags/token-jwt登陆/" style="font-size: 10px;">token jwt登陆</a> <a href="/tags/免登陆/" style="font-size: 10px;">免登陆</a> <a href="/tags/异常/" style="font-size: 10px;">异常</a> <a href="/tags/配置/" style="font-size: 15px;">配置</a>
+      <a href="/tags/Spring-Boot/" style="font-size: 20px;">Spring Boot</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/jdk8/" style="font-size: 10px;">jdk8</a> <a href="/tags/security/" style="font-size: 15px;">security</a> <a href="/tags/shiro/" style="font-size: 15px;">shiro</a> <a href="/tags/stream/" style="font-size: 10px;">stream</a> <a href="/tags/token-jwt登陆/" style="font-size: 10px;">token jwt登陆</a> <a href="/tags/免登陆/" style="font-size: 10px;">免登陆</a> <a href="/tags/异常/" style="font-size: 10px;">异常</a> <a href="/tags/配置/" style="font-size: 15px;">配置</a>
     </div>
   </div>
 
@@ -165,7 +175,7 @@
       <ul>
         
           <li>
-            <a href="/2019/03/16/jdk8 stream 基本使用/">(no title)</a>
+            <a href="/2019/03/16/jdk8 stream 基本使用/">jdk8 stream 基本使用（持续更新）</a>
           </li>
         
           <li>

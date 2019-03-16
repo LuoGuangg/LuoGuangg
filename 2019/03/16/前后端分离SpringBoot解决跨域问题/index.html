@@ -5,19 +5,20 @@
   
 
   
-  <title>Tag: 免登陆 | 罗诗傅的博客</title>
+  <title>前后端分离SpringBoot解决跨域问题 | 罗诗傅的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="数据读取中。。。">
-<meta name="keywords" content="罗诗傅">
-<meta property="og:type" content="website">
-<meta property="og:title" content="罗诗傅的博客">
-<meta property="og:url" content="http://yoursite.com/tags/免登陆/index.html">
+  <meta name="description" content="本文主要是解决一下SpringBoot的跨域问题  直接上代码，解决跨域问题通用方案1234567891011121314151617@Configurationpublic class CorsConfig &amp;#123;    private CorsConfiguration buildConfig() &amp;#123;        CorsConfiguration corsConfigur">
+<meta name="keywords" content="Spring Boot,security,配置,异常">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前后端分离SpringBoot解决跨域问题">
+<meta property="og:url" content="http://yoursite.com/2019/03/16/前后端分离SpringBoot解决跨域问题/index.html">
 <meta property="og:site_name" content="罗诗傅的博客">
-<meta property="og:description" content="数据读取中。。。">
+<meta property="og:description" content="本文主要是解决一下SpringBoot的跨域问题  直接上代码，解决跨域问题通用方案1234567891011121314151617@Configurationpublic class CorsConfig &amp;#123;    private CorsConfiguration buildConfig() &amp;#123;        CorsConfiguration corsConfigur">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-16T08:34:44.092Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="罗诗傅的博客">
-<meta name="twitter:description" content="数据读取中。。。">
+<meta name="twitter:title" content="前后端分离SpringBoot解决跨域问题">
+<meta name="twitter:description" content="本文主要是解决一下SpringBoot的跨域问题  直接上代码，解决跨域问题通用方案1234567891011121314151617@Configurationpublic class CorsConfig &amp;#123;    private CorsConfiguration buildConfig() &amp;#123;        CorsConfiguration corsConfigur">
   
     <link rel="alternate" href="/atom.xml" title="罗诗傅的博客" type="application/atom+xml">
   
@@ -64,40 +65,57 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/07/18/springboot-shiro-免登陆/" class="archive-article-date">
-  <time datetime="2018-07-18T08:09:19.000Z" itemprop="datePublished">7月 18</time>
+        <section id="main"><article id="post-前后端分离SpringBoot解决跨域问题" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/16/前后端分离SpringBoot解决跨域问题/" class="article-date">
+  <time datetime="2019-03-16T08:34:59.000Z" itemprop="datePublished">2019-03-16</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/07/18/springboot-shiro-免登陆/">springboot-shiro-免登陆</a>
+    <h1 class="article-title" itemprop="name">
+      前后端分离SpringBoot解决跨域问题
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p><em>本文主要是解决一下SpringBoot的跨域问题</em></p>
+<hr>
+<h1 id="直接上代码，解决跨域问题通用方案"><a href="#直接上代码，解决跨域问题通用方案" class="headerlink" title="直接上代码，解决跨域问题通用方案"></a>直接上代码，解决跨域问题通用方案</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CorsConfig</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> CorsConfiguration <span class="title">buildConfig</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        CorsConfiguration corsConfiguration = <span class="keyword">new</span> CorsConfiguration();</span><br><span class="line">        corsConfiguration.addAllowedOrigin(<span class="string">"*"</span>);</span><br><span class="line">        corsConfiguration.addAllowedHeader(<span class="string">"*"</span>);</span><br><span class="line">        corsConfiguration.addAllowedMethod(<span class="string">"*"</span>);</span><br><span class="line">        <span class="keyword">return</span> corsConfiguration;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> CorsFilter <span class="title">corsFilter</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        UrlBasedCorsConfigurationSource source = <span class="keyword">new</span> UrlBasedCorsConfigurationSource();</span><br><span class="line">        source.registerCorsConfiguration(<span class="string">"/**"</span>, buildConfig());</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> CorsFilter(source);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/16/前后端分离SpringBoot解决跨域问题/" data-id="cjtb8jrt9000a7wez9r316ooy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/">security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异常/">异常</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/16/jdk8 stream 基本使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jdk8 stream 基本使用（持续更新）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
 
 </section>
         

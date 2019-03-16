@@ -66,6 +66,53 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-jdk8 stream 基本使用" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/16/jdk8 stream 基本使用/" class="article-date">
+  <time datetime="2019-03-16T08:11:46.121Z" itemprop="datePublished">2019-03-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="jdk8-stream-基本使用"><a href="#jdk8-stream-基本使用" class="headerlink" title="jdk8 stream 基本使用"></a>jdk8 stream 基本使用</h1><hr>
+<p>title: jdk8 stream 基本使用（持续更新）<br>date: 2019-03-16 14:37:59</p>
+<h2 id="tags-java-stream-jdk8"><a href="#tags-java-stream-jdk8" class="headerlink" title="tags: [java,stream,jdk8]"></a>tags: [java,stream,jdk8]</h2><hr>
+<p><em>本文主要是总结一下平时使用的比较多的stream用法</em></p>
+<hr>
+<ul>
+<li>list循环以及filter过滤使用</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Student&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"><span class="comment">// 获得性别为男的学生数量</span></span><br><span class="line"><span class="keyword">int</span> num = list.stream()</span><br><span class="line">              .filter(c&gt;c.getSex().equals(<span class="string">"男"</span>))</span><br><span class="line">              <span class="comment">// 去重</span></span><br><span class="line">              .distinct()</span><br><span class="line">              .collect(Collectors.toList())</span><br><span class="line">              .size();</span><br><span class="line"></span><br><span class="line">list.filter(c&gt;c.getSex().equals(<span class="string">"男"</span>))</span><br><span class="line">    .forEach(x-&gt;&#123;</span><br><span class="line">    <span class="comment">// 只循环所有性别为男的</span></span><br><span class="line">    &#125;);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>list获得属性内某一字段的list结果集</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Student&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">List&lt;String&gt; sex = list.steam()</span><br><span class="line">    .map(Student::getSex)</span><br><span class="line">    .collect(Collectors.toList());</span><br></pre></td></tr></table></figure>
+<ul>
+<li>list根据某一个字段进行分组，返回结果集</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Student&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">Map&lt;String, List&lt;Student&gt;&gt; map = list.steam()</span><br><span class="line">    .collect(Collectors.groupingBy(t-&gt;t.getSex()));</span><br></pre></td></tr></table></figure>
+<ul>
+<li>list根据某一个字段统求平均</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Student&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">Double average= list.steam()</span><br><span class="line">    .mapToDouble(Student::getAge)</span><br><span class="line">    .average()</span><br><span class="line">    .getAsDouble();</span><br><span class="line"></span><br><span class="line">Double sum= list.steam()</span><br><span class="line">    .mapToDouble(Student::getAge)</span><br><span class="line">    .average()</span><br><span class="line">    .getAsDouble();</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/16/jdk8 stream 基本使用/" data-id="cjtb7xruj000wlkezrmdxvbib" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-spring-security-JWT自定义登陆" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2018/10/29/spring-security-JWT自定义登陆/" class="article-date">
@@ -96,7 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/29/spring-security-JWT自定义登陆/" data-id="cjntwwsog0000c8ezzzbp2m07" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/29/spring-security-JWT自定义登陆/" data-id="cjtb7xrtv0006lkezvyg0uu5t" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/">security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/token-jwt登陆/">token jwt登陆</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
@@ -144,7 +191,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/29/spring-security-配置自定义认证方法异常：Failed to evaluate expression '#oauth2.throwOnError - 副本/" data-id="cjntwwsp3000ec8ezbz4d3g8d" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/29/spring-security-配置自定义认证方法异常：Failed to evaluate expression '#oauth2.throwOnError - 副本/" data-id="cjtb7xrtn0002lkez55itnvm6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/">security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/异常/">异常</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/配置/">配置</a></li></ul>
@@ -201,7 +248,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/07/18/springboot-shiro-免登陆/" data-id="cjntwwsp2000dc8ezq6epbf6f" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/07/18/springboot-shiro-免登陆/" data-id="cjtb7xrts0004lkez2gop70x6" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shiro/">shiro</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/免登陆/">免登陆</a></li></ul>
@@ -272,7 +319,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/23/springboot-shiro-基本配置/" data-id="cjntwwspm000pc8ezxnirkwzs" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/23/springboot-shiro-基本配置/" data-id="cjtb7xrtu0005lkezdzupmcq5" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shiro/">shiro</a></li></ul>
@@ -325,7 +372,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/20/spring-boot-整合-mybatis/" data-id="cjntwwsom0001c8ez1aewhti4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/20/spring-boot-整合-mybatis/" data-id="cjtb7xrtk0001lkezkrrfmawg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring-Boot/">Spring Boot</a></li></ul>
@@ -372,7 +419,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/20/hello-world/" data-id="cjntwwsor0003c8eztwchinkj" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/20/hello-world/" data-id="cjtb7xrtc0000lkezhy2z905v" class="article-share-link">Share</a>
       
       
     </footer>
@@ -414,7 +461,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li></ul>
     </div>
   </div>
 
@@ -425,6 +472,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2019/03/16/jdk8 stream 基本使用/">(no title)</a>
+          </li>
         
           <li>
             <a href="/2018/10/29/spring-security-JWT自定义登陆/">spring-security-配置JWT Token的自定义登陆</a>
@@ -442,10 +493,6 @@
             <a href="/2018/05/23/springboot-shiro-基本配置/">springboot shiro 基本配置</a>
           </li>
         
-          <li>
-            <a href="/2018/05/20/spring-boot-整合-mybatis/">spring boot 整合 mybatis</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -458,7 +505,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 罗诗傅<br>
+      &copy; 2019 罗诗傅<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
